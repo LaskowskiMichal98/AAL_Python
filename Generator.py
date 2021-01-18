@@ -1,4 +1,5 @@
 import random
+import Card
 
 
 def generate(number_of_cards, path):
@@ -19,3 +20,10 @@ def generate(number_of_cards, path):
     write_string = str1 + " " + str2
     file.writelines(write_string)
     file.close()
+
+
+def generate_for_excel(list_of_cards):
+    list_of_cards.clear()
+    random.seed(None)
+    for i in range(random.randint(1, 200000)):
+        list_of_cards.append(Card.Card(float(random.randint(-10000, 10000)), float(random.randint(-10000, 10000))))

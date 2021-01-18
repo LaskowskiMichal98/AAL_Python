@@ -16,6 +16,7 @@ def menu():
         print("2. Wczytaj dane z pliku")
         print("3. Wyswietl wczytane dane")
         print("4. Uruchom algorytm")
+        print("5. Uruchom algorytm i zapisz wyniki do pliku .xlsx")
         print("0. Wyjscie")
         print("*********************************")
         choice = input("Wybieram opcje: ")
@@ -28,6 +29,8 @@ def menu():
             show_data(data)
         elif choice == '4':
             run_algorithm(data)
+        elif choice == '5':
+            go_go_excel_menu()
         elif choice == '0':
             return 0
 
@@ -57,4 +60,12 @@ def show_data(data):
 
 def run_algorithm(data):
     #TODO
+    return
+
+
+def go_go_excel_menu():
+    return
+
+
+def go_go_excel(path, number_of_runs):
     return
