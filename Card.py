@@ -6,6 +6,9 @@ class Card:
         self.x = round(x, 3)
         self.y = round(y, 3)
 
+        self.R = []
+        self.L = []
+
     def alpha(self):
         return round(math.atan(self.y / self.x)*180/math.pi, 3)  # angle between OX and vector in degrees
 
@@ -29,4 +32,10 @@ class Card:
 
     def __lt__(self, other):
         return self.alpha() < other.alpha()
+
+    def __add__(self, other):
+        return Card(self.x + other.x, self.y + other.y)
+
+    def __mul__(self, other):
+        return self.x * other.x + self.y * other.y
 
