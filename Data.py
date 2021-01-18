@@ -12,10 +12,10 @@ class Data:
     def read_from_file(self, path):
         temp_x = 0
         temp_y = 0
-
+        path = 'Data_files\\' + path
         with open(path, 'r') as file:
             for line in file:
                 for word in line.split():
-                    temp_x = float(word)
-                    temp_y = float(word)
+                    temp_x = line.split()[0]
+                    temp_y = line.split()[1]
                 self.add_card(Card.Card(temp_x, temp_y))
