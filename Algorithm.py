@@ -45,5 +45,11 @@ class Algorithm:
             if card*v_k > 0:
                 self.solution.append(card)
 
+    def reset(self):
+        self.origin = 0
+        self.Y = 0
+        self.V = 0
+        self.solution = 0
+
 
 
