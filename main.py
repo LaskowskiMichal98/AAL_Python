@@ -19,7 +19,6 @@ if __name__ == '__main__':
         my_data.read_from_file(sys.argv[2])
         Menu.run_algorithm(my_data)
     elif sys.argv[1] == '-e':
-        exit(1)
-        # excel
+        Menu.go_go_excel(sys.argv[2], sys.argv[3])
     else:
         print("Niepoprawna flaga uruchomienia.")

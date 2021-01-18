@@ -1,9 +1,12 @@
+import math
+
 class Algorithm:
     def __init__(self):
         self.origin = []
         self.Y = []
         self.V = []
         self.solution = []
+        self.time = None
 
     def create_y_list(self):
         y_full = []
@@ -29,6 +32,7 @@ class Algorithm:
         y_full.append(previous)
 
     def run(self, data):
+        start_time = time.time()
         self.origin = data
         self.create_y_list()
 
@@ -44,6 +48,18 @@ class Algorithm:
         for card in self.origin:  # find vecs from origin that sums up to v_k O(n)
             if card*v_k > 0:
                 self.solution.append(card)
+        self.time = time.ime() - start_time
 
+    def return_results(self):
+        final_x = 0
+        final_y = 0
+
+        for i in range(len(self.solution)):
+            final_x += solution[i].x
+            final_y += self.solution[i].y
+
+        final_trip = math.sqrt(math.pow(final_x) + math.pow(final_y))
+
+        return final_x, final_y, final_trip, self.time
 
 

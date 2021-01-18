@@ -1,6 +1,9 @@
 import Data
 import Generator
 import os
+import Algorithm
+import xlsxwriter
+import random
 
 
 def cls():
@@ -9,7 +12,7 @@ def cls():
 
 def menu():
     data = Data.Data()
-    while (True):
+    while True:
         cls()
         print("*********************************")
         print("1. Generuj nowy plik z danymi")
@@ -59,13 +62,47 @@ def show_data(data):
 
 
 def run_algorithm(data):
-    #TODO
+    algorithm = Algorithm.Algorithm()
+    algorithm.run(data.list_of_cards)
+    final_x, final_y, final_trip, time = algorithm.return_results()
+    print(f'Punkt, do ktorego udalo sie zajsc: X = {final_x}, Y = {final_y}.')
+    print(f'przebyta odleglosc: {final_trip}.')
+    print(f'Czas wykonywania algorytmu: {time}.')
+    temp = input("Wcisnij enter, aby wrocic/zakonczyc.")
     return
 
 
 def go_go_excel_menu():
+    cls()
+    path = input("Podaj nazwe pliku (.xlsx): ")
+    number_of_runs = int(input("Podaj liczbe uruchomien: "))
+    go_go_excel(path, number_of_runs)
     return
 
 
 def go_go_excel(path, number_of_runs):
+    workbook = xlsxwriter.Workbook(path)
+    worksheet = workbook.add_worksheet()
+    worksheet.write(0, 0, 'X')
+    worksheet.write(0, 0, 'Y')
+    worksheet.write(0, 0, 'Odleglosc')
+    worksheet.write(0, 0, 'Czas')
+    worksheet.write(0, 0, 'N')
+    random.seed(None)
+    algorithm = Algorithm.Algorithm()
+    
+    my_data = Data.Data()
+    
+    for i in range(number_of_runs):
+        Generator.generate_for_excel(my_data.list_of_cards)
+        algorithm.run(my_data.list_of_cards)
+        final_x, final_y, final_trip, time = algorithm.return_results()
+        worksheet.write(i+1, 0, final_x)
+        worksheet.write(i+1, 1, final_y)
+        worksheet.write(i+1, 2, final_trip)
+        worksheet.write(i+1, 3, time)
+        worksheet.write(i+1, 4, len(my_data.list_of_cards))
+        
+    workbook.close()
+        
     return

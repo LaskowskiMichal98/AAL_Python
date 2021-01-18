@@ -8,7 +8,6 @@ def generate(number_of_cards, path):
         return -1
 
     random.seed(None)
-    path = 'Data_files\\' + path
     file = open(path, 'w')
     for i in range(number_of_cards - 1):
         str1 = str(random.randint(-10000, 10000))
