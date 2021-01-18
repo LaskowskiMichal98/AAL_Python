@@ -1,10 +1,16 @@
 import Data
 import Generator
+import os
+
+
+def cls():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def menu():
     data = Data.Data()
     while (True):
+        cls()
         print("*********************************")
         print("1. Generuj nowy plik z danymi")
         print("2. Wczytaj dane z pliku")
@@ -27,6 +33,7 @@ def menu():
 
 
 def generate_new_data():
+    cls()
     path = input("Podaj nazwe pliku: ")
     length = int(input("Podaj liczbe kart (max 200k): "))
     Generator.generate(length, path)
@@ -34,12 +41,14 @@ def generate_new_data():
 
 
 def read_data(data):
+    cls()
     path = input("Podaj nazwe pliku z danymi: ")
     data.read_from_file(path)
     return
 
 
 def show_data(data):
+    cls()
     for i in range(len(data.list_of_cards)):
         print(data.list_of_cards[i].__str__())
     temp = input("Wcisnij enter, aby wrocic do menu.")

@@ -12,7 +12,7 @@ class Data:
     def read_from_file(self, path):
         temp_x = 0
         temp_y = 0
-
+        path = 'Data_files\\' + path
         with open(path, 'r') as file:
             for line in file:
                 for word in line.split():
