@@ -16,9 +16,9 @@ class Card:
         return Card(new_x, new_y)
 
     def normalize(self):
-        return Card(self.x/len(self), self.y/len(self))
+        return Card(self.x/self.length(), self.y/self.length())
 
-    def __len__(self):
+    def length(self):
         return round(math.sqrt(self.x**2 + self.y**2), 3)
 
     def __str__(self):
