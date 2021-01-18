@@ -16,6 +16,6 @@ class Data:
         with open(path, 'r') as file:
             for line in file:
                 for word in line.split():
-                    temp_x = float(word)
-                    temp_y = float(word)
+                    temp_x = line.split()[0]
+                    temp_y = line.split()[1]
                 self.add_card(Card.Card(temp_x, temp_y))
