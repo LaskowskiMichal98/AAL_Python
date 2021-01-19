@@ -1,5 +1,6 @@
 import math
 import time
+from Card import Card
 
 
 class Algorithm:
@@ -31,20 +32,20 @@ class Algorithm:
             else:
                 previous.L += card.L
                 previous.R += card.R
-        y_full.append(previous)
+        self.Y.append(previous)
 
     def run(self, data):
         start_time = time.time()
         self.origin = data
         self.create_y_list()
 
-        self.V.append(sum(self.Y[0].L + self.Y[1].R))
+        self.V.append(sum(self.Y[0].L + self.Y[1].R, start=Card(0, 0)))
 
         v_k = self.V[-1]
 
         for y in self.Y[1:]:  # 5. O(n)
-            self.V.append(self.V[-1] + sum(y.L) - sum(y.R))
-            if self.V[-1] > v_k:
+            self.V.append(self.V[-1] + sum(y.L, start=Card(0, 0)) - sum(y.R, start=Card(0, 0)))
+            if self.V[-1].length() > v_k.length():
                 v_k = self.V[-1]
 
         for card in self.origin:  # find vecs from origin that sums up to v_k O(n)
