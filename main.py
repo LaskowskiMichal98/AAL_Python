@@ -8,7 +8,7 @@ if __name__ == '__main__':
     if sys.argv[1] == '-m':
         Menu.menu()
     elif sys.argv[1] == '-c':
-        Generator.generate(sys.argv[3], sys.argv[2])
+        Generator.generate(int(sys.argv[3]), sys.argv[2])
         print(f'Wygenerowano {sys.argv[3]} kart do pliku {sys.argv[2]}.')
     elif sys.argv[1] == '-s':
         my_data = Data.Data()
@@ -19,6 +19,6 @@ if __name__ == '__main__':
         my_data.read_from_file(sys.argv[2])
         Menu.run_algorithm(my_data)
     elif sys.argv[1] == '-e':
-        Menu.go_go_excel(sys.argv[2], sys.argv[3])
+        Menu.go_go_excel(sys.argv[2], int(sys.argv[3]))
     else:
         print("Niepoprawna flaga uruchomienia.")

@@ -61,7 +61,7 @@ class Algorithm:
             final_x += self.solution[i].x
             final_y += self.solution[i].y
 
-        final_trip = math.sqrt(math.pow(final_x) + math.pow(final_y))
+        final_trip = math.sqrt(math.pow(final_x, 2) + math.pow(final_y, 2))
         return final_x, final_y, final_trip, self.time
 
     def reset(self):
