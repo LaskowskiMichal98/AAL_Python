@@ -8,7 +8,7 @@ if __name__ == '__main__':
     if sys.argv[1] == '-m':
         Menu.menu()
     elif sys.argv[1] == '-c':
-        Generaton.generate(argv[3], argv[2])
+        Generator.generate(sys.argv[3], sys.argv[2])
         print(f'Wygenerowano {sys.argv[3]} kart do pliku {sys.argv[2]}.')
     elif sys.argv[1] == '-s':
         my_data = Data.Data()

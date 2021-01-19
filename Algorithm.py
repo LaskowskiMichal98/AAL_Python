@@ -1,4 +1,5 @@
 import math
+import time
 
 
 class Algorithm:
@@ -49,14 +50,14 @@ class Algorithm:
         for card in self.origin:  # find vecs from origin that sums up to v_k O(n)
             if card * v_k > 0:
                 self.solution.append(card)
-        self.time = time.ime() - start_time
+        self.time = time.time() - start_time
 
     def return_results(self):
         final_x = 0
         final_y = 0
 
         for i in range(len(self.solution)):
-            final_x += solution[i].x
+            final_x += self.solution[i].x
             final_y += self.solution[i].y
 
         final_trip = math.sqrt(math.pow(final_x) + math.pow(final_y))
