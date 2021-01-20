@@ -81,6 +81,8 @@ def go_go_excel_menu():
 
 
 def go_go_excel(path, number_of_runs):
+    if number_of_runs < 1:
+        print("Bledna liczba uruchomiec algorytmu")
     workbook = xlsxwriter.Workbook(path)
     worksheet = workbook.add_worksheet()
     worksheet.write(0, 0, 'X')

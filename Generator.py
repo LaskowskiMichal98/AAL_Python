@@ -5,9 +5,10 @@ import Card
 def generate(number_of_cards, path):
     if number_of_cards < 1 or number_of_cards > 200000:
         print("Bledna liczba kart")
-        return -1
+        return
 
     random.seed(None)
+
     file = open(path, 'w')
     for i in range(number_of_cards - 1):
         str1 = str(random.randint(-10000, 10000))

@@ -45,7 +45,7 @@ class Algorithm:
 
         # v is set of possible best solutions, longest vec from v will be the best solution
         v = [sum(y[0].L + y[1].R, start=Card(0, 0))]
-        v_k = v[-1]  # the furthest point that can be reached by suming vectors from the initial set
+        v_k = v[-1]  # the furthest point that can be reached by summing vectors from the initial set
 
         for y in y[1:]:  # point 5 of algorithm description O(n)
             v.append(v[-1] + sum(y.L, start=Card(0, 0)) - sum(y.R, start=Card(0, 0)))
