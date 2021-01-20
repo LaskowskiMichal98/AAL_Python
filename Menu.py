@@ -92,9 +92,14 @@ def go_go_excel(path, number_of_runs):
     algorithm = Algorithm.Algorithm()
     
     my_data = Data.Data()
-    
+    num = 0
     for i in range(number_of_runs):
-        Generator.generate_for_excel(my_data.list_of_cards)
+        if i == 0:
+            Generator.generate_for_excel(my_data.list_of_cards, 1)
+        else:
+            num += 100000
+            Generator.generate_for_excel(my_data.list_of_cards, num)
+
         algorithm.run(my_data.list_of_cards)
         final_x, final_y, final_trip, time = algorithm.return_results()
         worksheet.write(i+1, 0, final_x)
