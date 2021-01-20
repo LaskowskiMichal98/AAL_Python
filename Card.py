@@ -10,13 +10,14 @@ class Card:
         self.L = []
 
     def alpha(self):
+        """Angle between vector and OX"""
         if self.y > 0.0:
             if self.x == 0.0:
                 return 90
             elif self.x > 0.0:
                 return round(math.atan(self.y / self.x) * 180 / math.pi, 3)
             else:
-                return -round(math.atan(self.y / self.x) * 180 / math.pi, 3) + 90
+                return 180 - round(math.atan(-self.y / self.x) * 180 / math.pi, 3)
         elif self.y < 0.0:
             if self.x == 0.0:
                 return 270
@@ -31,6 +32,9 @@ class Card:
                 return 180.0
 
     def rotate(self, angle):
+        """
+        Returns vector created by rotating self by angle counter-clockwise
+        """
         angle_rad = angle/180*math.pi
         new_x = self.x * math.cos(angle_rad) - self.y * math.sin(angle_rad)
         new_y = self.x * math.sin(angle_rad) + self.y * math.cos(angle_rad)
