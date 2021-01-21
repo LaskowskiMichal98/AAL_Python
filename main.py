@@ -1,3 +1,8 @@
+"""
+Zadanie 10 - czołg steampunkowy
+Pawel Lech
+Michal Laskowski
+"""
 import Menu
 import Data
 import Generator
