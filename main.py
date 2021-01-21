@@ -9,9 +9,25 @@ import Generator
 import sys
 
 
+def usage():
+    print("""
+    Poprawne uruchomienia:
+    Menu:                                 > python main.py -m
+    Generacja do pliku:                   > python main.py -c [nazwa_pliku.txt] [liczba_kart] 
+    Wyświetlenie zawartości pliku:        > python main.py -s [nazwa_pliku.txt]
+    Algorytm dla danych z pliku:          > python main.py -r [nazwa_pliku.txt]
+    Algorytm dla losowego zestawu danych: > python main.py -e [nazwa_pliku_wynikowego.xlsx] [liczba_uruchomień]
+    Algorytm dla losowego zestawu danych: > python main.py -t [nazwa_pliku.xlsx] [liczba_uruchomień] [wielkość_skoku]
+    
+    Dokładniejszy opis poszczególnych opcji w pliku readme.txt lub dokumentacji projektu.
+    """)
+
+
 if __name__ == '__main__':
     try:
-        if sys.argv[1] == '-m':
+        if sys.argv[1] == '-h':
+            usage()
+        elif sys.argv[1] == '-m':
             Menu.menu()
         elif sys.argv[1] == '-c':
             Generator.generate(int(sys.argv[3]), sys.argv[2])
@@ -32,3 +48,6 @@ if __name__ == '__main__':
             print("Niepoprawna flaga uruchomienia.")
     except ValueError:
         print("Podano wartosc inna niz 'int' jako parametr wejsciowy.")
+    except IndexError:
+        usage()
+

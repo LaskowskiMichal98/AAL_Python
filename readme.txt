@@ -9,6 +9,13 @@ Jesteś żołnierzem na polu bitwy. To zapewne przykra wiadomość, ale to dopie
 
 
 Informacje o programie:
+main.py - główny plik uruchomieniowy programu
+Card.py - klasa Card odpowiada jednemu wektorowi z pliku wejściowego
+Data.py - klasa Data stanowi kontener przechowujący karty
+Menu.py - klasa Menu pozwala na wyświetlanie użytkownikowi tekstowego interfejsu
+Generator.py - dwie funkcje zawarte w pliku umożliwiają generowanie wybranej liczby kart do pliku lub do listy
+Algorithm.py - klasa Algorithm odpowiada za wykorzystanie opisanego przez nas algorytmu do znalezienie poszukiwanego rozwiązania
+
 Możliwe tryby uruchomienia programu:
 1. python main.py -m : uruchomienie programu z prostym menu tekstowym.
 2. python main.py -c [nazwa_pliku.txt] [liczba_kart] : wygenerowanie [liczba_kart] kart z danymi do pliku [nazwa_pliku].
