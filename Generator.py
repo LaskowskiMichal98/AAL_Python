@@ -22,8 +22,8 @@ def generate(number_of_cards, path):
     file.close()
 
 
-def generate_for_excel(list_of_cards):
+def generate_for_excel(list_of_cards, number):
     list_of_cards.clear()
     random.seed(None)
-    for i in range(random.randint(1, 200000)):
+    for i in range(number):
         list_of_cards.append(Card.Card(float(random.randint(-10000, 10000)), float(random.randint(-10000, 10000))))

@@ -15,6 +15,7 @@ Możliwe tryby uruchomienia programu:
 3. python main.py -s [nazwa_pliku.txt] : wyświetlenie zawartości pliku [nazwa_pliku].
 4. python main.py -r [nazwa_pliku.txt] : uruchomienie algorytmu dla danych z pliku [nazwa_pliku] oraz wyświetlenie wyniku.
 5. python main.py -e [nazwa_pliku.xlsx] [liczba_uruchomien] : uruchomienie algorytmu [liczba_uruchomien] razy dla losowych zestawów danych i zapisanie wyników do pliku .xlsx.
+6. python main.py -t [nazwa_pliku.xlsx] [liczba_uruchomien] [wielkosc_skoku] : uruchomienie algorytmu [liczba_uruchomien] razy dla rozmiarów zaczynających się od 1 i rosnących o [wielkosc_skoku] (liczony od wartości 0) i zapisanie wyników do pliku .xlsx.
 
 Dane wejściowe programu znajdują się w folderze 'Data_files' - są to proste pliki tekstowe z danymi w formacie:
 X1 Y2

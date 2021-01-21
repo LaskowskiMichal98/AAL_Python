@@ -21,6 +21,8 @@ if __name__ == '__main__':
             Menu.run_algorithm(my_data)
         elif sys.argv[1] == '-e':
             Menu.go_go_excel(sys.argv[2], int(sys.argv[3]))
+        elif sys.argv[1] == '-t':
+            Menu.table_builder(sys.argv[2], int(sys.argv[3]), int(sys.argv[4]))
         else:
             print("Niepoprawna flaga uruchomienia.")
     except ValueError:
