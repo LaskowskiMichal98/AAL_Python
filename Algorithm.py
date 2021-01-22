@@ -17,6 +17,8 @@ class Algorithm:
     def create_y_list(self):
         y_full = []
         for card in self.origin:  # O(n)
+            if card.length() == 0:
+                continue
             left = card.rotate(90).normalize()
             left.L.append(card)
             y_full.append(left)
@@ -25,7 +27,9 @@ class Algorithm:
             right.R.append(card)
             y_full.append(right)
 
-        y_full = sorted(y_full)  # timsort - worst case O(nlogn), best  O(n)
+        if len(y_full) == 0:
+            return None
+        y_full = sorted(y_full, reverse=True)  # timsort - worst case O(nlogn), best  O(n)
 
         y = list()  # normalized and rotated elements of initial set without redundant elements
         previous = y_full[0]
@@ -46,13 +50,18 @@ class Algorithm:
     def run(self, data):
         start_time = time.time()
         self.origin = data
-        y = self.create_y_list()
+        y_list = self.create_y_list()
 
+        if not y_list:
+            return
+
+        x = y_list[0].diagonal(y_list[1])
         # v is set of possible best solutions, longest vec from v will be the best solution
-        v = [sum(y[0].L + y[1].R, start=Card(0, 0))]
+        v = [sum([x for x in self.origin if (x * y_list[0].diagonal(y_list[1]) > 0)], start=Card(0, 0))]
+
         v_k = v[-1]  # the furthest point that can be reached by summing vectors from the initial set
 
-        for y in y[1:]:  # point 5 of algorithm description O(n)
+        for y in y_list[1:]:  # point 5 of algorithm description O(n)
             v.append(v[-1] + sum(y.L, start=Card(0, 0)) - sum(y.R, start=Card(0, 0)))
             if v[-1].length() > v_k.length():
                 v_k = v[-1]

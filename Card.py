@@ -75,3 +75,12 @@ class Card:
         if type(other) == int:
             return self
         return Card(self.x - other.x, self.y - other.y)
+
+    def diagonal(self, other):
+        """Returns vector lying on diagonal between self and other which length equals to 1"""
+        alpha_diag = (self.alpha() + other.alpha()) / 2
+        return Card(
+            round(math.cos(alpha_diag), 3),
+            round(math.sin(alpha_diag), 3)
+        )
+
